@@ -28,10 +28,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
-
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
@@ -39,6 +36,11 @@ class User < ApplicationRecord
   validates :uid, uniqueness: { scope: :provider }
 
   before_validation :init_uid
+
+  # RELATIONS
+  has_many :categories, dependent: :restrict_with_exception
+  has_many :user_posts, dependent: :restrict_with_exception
+  has_many :comments, dependent: :restrict_with_exception
 
   def full_name
     return username if first_name.blank?

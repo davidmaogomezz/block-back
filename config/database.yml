@@ -10,11 +10,11 @@ default: &default
 
 development:
  <<: *default
- database: gymstructor_back_development
+ database: blog-back_development
 
 test:
  <<: *default
- database: gymstructor_back_test
+ database: blog-back_test
 
 production:
  <<: *default
