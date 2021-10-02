@@ -21,5 +21,5 @@ class Comment < ApplicationRecord
   # VALIDATIONS
   validates :content, length: { minimum: 3,
                                 too_short: '
-                                The post title must be at least 3 characters long' }
+                                  The post title must be at least 3 characters long' }
 end
