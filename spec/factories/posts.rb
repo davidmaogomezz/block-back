@@ -10,7 +10,7 @@
 #
 FactoryBot.define do
   factory :post do
-    title { 'MyString' }
-    content { 'MyText' }
+    title { Faker::String.random(length: 3) }
+    content { Faker::String.random(length: 200) }
   end
 end
