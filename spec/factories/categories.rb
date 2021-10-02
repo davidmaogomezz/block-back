@@ -14,7 +14,7 @@
 #
 FactoryBot.define do
   factory :category do
-    user { nil }
-    name { 'MyString' }
+    user { FactoryBot.create(:user) }
+    name { Faker::String.random(length: 3..12) }
   end
 end
