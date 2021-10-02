@@ -15,7 +15,7 @@
 #
 FactoryBot.define do
   factory :category_post do
-    category { nil }
-    post { nil }
+    category { FactoryBot.create(:category) }
+    post { FactoryBot.create(:post) }
   end
 end

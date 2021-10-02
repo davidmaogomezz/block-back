@@ -16,5 +16,15 @@
 require 'rails_helper'
 
 RSpec.describe CategoryPost, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'With attributes valid of factory' do
+    expect(FactoryBot.create(:category_post)).to be_valid
+  end
+
+  it 'With category nil' do
+    expect(CategoryPost.new(category: nil)).not_to be_valid
+  end
+
+  it 'With post nil' do
+    expect(CategoryPost.new(post: nil)).not_to be_valid
+  end
 end
