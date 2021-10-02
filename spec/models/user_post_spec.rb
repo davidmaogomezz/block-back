@@ -16,5 +16,15 @@
 require 'rails_helper'
 
 RSpec.describe UserPost, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'With attributes valid of factory' do
+    expect(FactoryBot.create(:user_post)).to be_valid
+  end
+
+  it 'With attributes valid of factory' do
+    expect(UserPost.new(user: nil)).not_to be_valid
+  end
+
+  it 'With attributes valid of factory' do
+    expect(UserPost.new(post: nil)).not_to be_valid
+  end
 end
