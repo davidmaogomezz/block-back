@@ -15,7 +15,7 @@
 #
 FactoryBot.define do
   factory :user_post do
-    user { nil }
-    post { nil }
+    user { FactoryBot.create(:user) }
+    post { FactoryBot.create(:post) }
   end
 end
