@@ -10,7 +10,7 @@
 #
 FactoryBot.define do
   factory :post do
-    title { Faker::String.random(length: 3) }
-    content { Faker::String.random(length: 200) }
+    title { Faker::String.random(length: 3).gsub("\u0000", '') }
+    content { Faker::String.random(length: 300).gsub("\u0000", '') }
   end
 end

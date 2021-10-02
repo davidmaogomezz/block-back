@@ -15,6 +15,6 @@
 FactoryBot.define do
   factory :category do
     user { FactoryBot.create(:user) }
-    name { Faker::String.random(length: 3..12) }
+    name { Faker::String.random(length: 3..12).gsub("\u0000", '') }
   end
 end
